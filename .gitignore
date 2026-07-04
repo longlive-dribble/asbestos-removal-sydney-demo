@@ -9,7 +9,7 @@ desktop.ini
 # Out-of-scope: different-niche demo, not part of the asbestos-removal-sydney site
 brisbane-investment-buyers-agents.html
 
-# Never commit secrets (defensive — this mockup has none)
+# Never commit secrets (defensive; this mockup has none)
 .env
 .env.*
 *.key
