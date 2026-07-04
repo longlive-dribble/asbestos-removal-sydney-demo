@@ -1,0 +1,9 @@
+# Netlify config for the Directory Venture prototype (static mockup, no build step).
+[build]
+  publish = "."
+
+# Belt-and-braces: tell crawlers to stay away even if robots.txt is missed.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
