@@ -42,7 +42,9 @@ ul { list-style: none; }
   font-weight: 600; transition: top .18s ease;
 }
 .skip-link:focus { top: 12px; }
-:focus-visible { outline: 3px solid var(--hazard); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--slate); outline-offset: 2px; border-radius: 4px; box-shadow: 0 0 0 6px rgba(242, 193, 46, .35); }
+/* Dark surfaces (area hero, footer): flip the ring to white so it clears 3:1 on slate, keep the hazard halo */
+.area-hero :focus-visible, footer.site :focus-visible { outline-color: #fff; box-shadow: 0 0 0 6px rgba(242, 193, 46, .45); }
 
 /* ---------- HAZARD TAPE (brand device) ---------- */
 .hazard-tape {
@@ -111,7 +113,7 @@ header.nav.scrolled { box-shadow: var(--shadow-sm); }
 .picker-card p.lede { font-size: .92rem; color: var(--muted); margin-bottom: 20px; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: .82rem; font-weight: 700; color: var(--slate); margin-bottom: 7px; }
-.field label .req { color: var(--hazard-deep); }
+.field label .req { color: var(--slate); }
 .select-shell { position: relative; }
 .select-shell svg { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); pointer-events: none; }
 select, input, textarea {
@@ -121,7 +123,7 @@ select, input, textarea {
 select { appearance: none; padding-right: 40px; cursor: pointer; }
 textarea { resize: vertical; min-height: 96px; }
 select:focus, input:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px var(--teal-soft); }
-input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--hazard); outline-offset: 2px; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--slate); outline-offset: 2px; box-shadow: 0 0 0 6px rgba(242, 193, 46, .35); }
 .btn-primary {
   width: 100%; border: 0; cursor: pointer; font-family: inherit; background: var(--teal); color: #fff;
   font-weight: 700; font-size: 1rem; padding: 14px 20px; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
@@ -222,8 +224,9 @@ section.block { padding: 88px 0; }
 }
 .area-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 26px 26px; opacity: .5; }
 .crumbs { position: relative; z-index: 2; font-size: .84rem; color: #93AFB1; margin-bottom: 22px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.crumbs a { display: inline-flex; align-items: center; min-height: 44px; } /* 2.5.8 touch target */
 .crumbs a:hover { color: #fff; }
-.crumbs span { color: #6E8A8C; }
+.crumbs span { color: #93AFB1; }
 .area-hero-inner { position: relative; z-index: 2; max-width: 720px; }
 .area-chip {
   display: inline-flex; align-items: center; gap: 8px; background: rgba(242,193,46,0.14); border: 1px solid rgba(242,193,46,0.34);
@@ -353,6 +356,7 @@ footer.site ul li a:hover { color: #fff; }
     display: flex; flex-direction: column; align-items: flex-start; gap: 16px; position: absolute; top: 74px; left: 0; right: 0;
     background: #fff; padding: 20px 24px; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-md);
   }
+  .nav-links.open a { display: flex; align-items: center; min-height: 44px; } /* 2.5.8 touch target */
   .nav-toggle { display: inline-flex; }
   section.block { padding: 62px 0; }
   .area-grid-cards, .steps, .trust-grid, .law-grid, .foot-grid { grid-template-columns: 1fr; }
